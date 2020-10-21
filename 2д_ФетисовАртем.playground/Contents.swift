@@ -52,30 +52,24 @@ var arrFib = fiboNum(num: 100, count: 50);
 
 // 6) Заполнить массив из 100 элементов различными простыми числами.
 
-func naturalNumber (n: Int) -> [Int]{
-    var arrayNum = [Int]()
-    for i in 2...n{
-        for k in 2 ... i{
-            var check = true
-            if (i != k && i % k != 0){
-                print("\(i) % \(k) = \(i%k) ")
-                check = false
-            }
-            if (check){
-                break
-            }
-            
-//            var x = sqrt(Double(i))
-//            if (floor(x) != x){
-//                arrayNum.append(i)
-//            }
-//
-//
-//            break
+var simpleArray = [Int]()
+var array = Array(2...100)
+for value in array {
+    var check = false
+    for value2 in 2 ... value{
+        if (value % value2 == 0 && value != value2){
+            check = true
+    
         }
+        if (check){
+            break
+        }
+        //print("\(value) % \(value2) = \(value % value2)")
     }
-    return arrayNum
+    if (!check){
+        simpleArray.append(value)
+    }
+    //
 }
 
-//print(naturalNumber(n: 100))
-
+print(simpleArray)
